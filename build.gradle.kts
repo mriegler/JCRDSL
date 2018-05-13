@@ -26,6 +26,7 @@ application {
 dependencies {
     compile(kotlin("stdlib"))
     compile(kotlin("stdlib-jdk8", kotlin_version))
+    compile("com.authzee.kotlinguice4:kotlin-guice:1.0.0")
 }
 
 repositories {
