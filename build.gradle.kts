@@ -27,6 +27,8 @@ dependencies {
     compile(kotlin("stdlib"))
     compile(kotlin("stdlib-jdk8", kotlin_version))
     compile("com.authzee.kotlinguice4:kotlin-guice:1.0.0")
+    compile("io.github.microutils:kotlin-logging:1.5.4")
+    compile("ch.qos.logback:logback-classic:1.2.3")
 }
 
 repositories {
