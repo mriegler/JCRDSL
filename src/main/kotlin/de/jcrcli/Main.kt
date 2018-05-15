@@ -1,3 +1,5 @@
+package de.jcrcli
+
 import com.authzee.kotlinguice4.getInstance
 import com.google.inject.Guice
 import com.google.inject.Inject

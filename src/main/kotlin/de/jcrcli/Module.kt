@@ -1,3 +1,4 @@
+package de.jcrcli
 import com.authzee.kotlinguice4.KotlinModule
 import java.util.*
 

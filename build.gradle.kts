@@ -20,7 +20,7 @@ apply {
 }
 
 application {
-    mainClassName = "samples.HelloWorldKt"
+    mainClassName = "de.jcrcli.MainKt"
 }
 
 dependencies {
