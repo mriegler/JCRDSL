@@ -13,15 +13,10 @@ buildscript {
     }
 }
 plugins {
-    application
     kotlin("jvm") version "1.2.41"
 }
 apply {
     plugin("kotlin")
-}
-
-application {
-    mainClassName = "de.jcrcli.MainKt"
 }
 
 dependencies {
@@ -35,9 +30,9 @@ dependencies {
     compile("javax.jcr:jcr:2.0")
     compile("org.apache.jackrabbit:jackrabbit-core:2.17.2")
 
-    testCompile("io.kotlintest:kotlintest-core:3.0.2")
-    testCompile("io.kotlintest:kotlintest-assertions:3.0.2")
-    testCompile("io.kotlintest:kotlintest-runner-junit5:3.0.2")
+    testCompile("io.kotlintest:kotlintest-core:3.1.0")
+    testCompile("io.kotlintest:kotlintest-assertions:3.1.0")
+    testCompile("io.kotlintest:kotlintest-runner-junit5:3.1.0")
 }
 
 

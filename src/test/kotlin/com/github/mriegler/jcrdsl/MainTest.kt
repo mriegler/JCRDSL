@@ -1,3 +1,5 @@
+package com.github.mriegler.jcrdsl
+
 import io.kotlintest.matchers.startWith
 import io.kotlintest.should
 import io.kotlintest.shouldBe
