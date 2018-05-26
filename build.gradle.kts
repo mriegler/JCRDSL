@@ -1,3 +1,4 @@
+import org.gradle.plugins.ide.idea.model.IdeaModel
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kotlin_version: String by extra
@@ -14,13 +15,13 @@ buildscript {
 }
 plugins {
     kotlin("jvm") version "1.2.41"
+    id("idea")
 }
 apply {
     plugin("kotlin")
 }
 
 dependencies {
-    compile(kotlin("stdlib"))
     compile(kotlin("stdlib-jdk8", kotlin_version))
     compile("com.authzee.kotlinguice4:kotlin-guice:1.0.0")
     compile("io.github.microutils:kotlin-logging:1.5.4")
@@ -54,4 +55,10 @@ compileKotlin.kotlinOptions {
 val compileTestKotlin: KotlinCompile by tasks
 compileTestKotlin.kotlinOptions {
     jvmTarget = "1.8"
+}
+
+configure<IdeaModel> {
+    module {
+        isDownloadSources = true
+    }
 }
