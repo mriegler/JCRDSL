@@ -17,4 +17,21 @@ data class NodeDefinition(
 
         return newNode
     }
+
+    fun ensure(node: Node): Node {
+        if (!node.primaryNodeType.isNodeType(primaryType)) {
+            node.setPrimaryType(primaryType)
+        }
+
+        mixins.forEach { node.addMixin(it) }
+        properties.forEach { node.setProperty(it.name, it.value) }
+        children.forEach {
+            if (node.hasNode(it.name))
+                it.ensure(node.getNode(it.name))
+            else
+                it.attach(node)
+        }
+
+        return node
+    }
 }

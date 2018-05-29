@@ -39,7 +39,6 @@ class NodeTest : StringSpec({
 
         val def = node {
             name = "test"
-            primaryType = "nt:folder"
             property("test2", "test2")
             node {
                 name = "child"
@@ -50,10 +49,9 @@ class NodeTest : StringSpec({
         newNode.ensure(def)
 
         newNode.name shouldBe "test"
-        newNode.primaryNodeType.isNodeType("nt:folder").shouldBeTrue()
         newNode.getProperty("test").string shouldBe "test"
         newNode.getProperty("test2").string shouldBe "test2"
         newNode.hasNode("child").shouldBeTrue()
-        newNode.getNode("child").getProperty("test").long shouldBe 3
+        newNode.getNode("child").getProperty("test").long shouldBe 3L
     }
 })

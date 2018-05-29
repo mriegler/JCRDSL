@@ -14,13 +14,13 @@ fun Node.attach(definition: NodeDefinition): Node {
 }
 
 /**
- * Ensures the given [node] matches the [definition] by making changes
- * where needed, returning the given node for chaining
+ * Ensures the given [node] matches the [definition] by adding properties and nodes
+ * where needed, returning the given node for chaining. This does not delete things not in the definition.
  *
  * The top level node definition refers to the receiver node
  */
 fun Node.ensure(definition: NodeDefinition): Node {
-    TODO()
+    return definition.ensure(this)
 }
 
 /**
