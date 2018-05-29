@@ -5,14 +5,10 @@ import com.github.mriegler.jcrdsl.node
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
-import org.apache.jackrabbit.commons.SimpleValueFactory
 
 val nodeDef = node {
     name = "master"
-    property {
-        name = "test"
-        value = SimpleValueFactory().createValue("test")
-    }
+    property("test", "test")
 }
 
 class NodeTest : StringSpec({
