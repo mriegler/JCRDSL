@@ -42,6 +42,11 @@ tasks {
     // Use the native JUnit support of Gradle.
     "test"(Test::class) {
         useJUnitPlatform()
+        //testLogging.showStandardStreams = true
+        testLogging {
+            events("passed", "skipped", "failed", "standardOut", "standardError")
+        }
+    }
     }
 }
 
