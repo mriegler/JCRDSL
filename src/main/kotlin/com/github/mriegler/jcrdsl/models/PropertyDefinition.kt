@@ -1,16 +1,16 @@
 package com.github.mriegler.jcrdsl.models
 
+import com.github.mriegler.jcrdsl.enums.PropertyType
 import org.apache.jackrabbit.commons.SimpleValueFactory
 import java.io.InputStream
 import java.math.BigDecimal
 import java.util.*
 import javax.jcr.Node
 import javax.jcr.Value
-import javax.jcr.PropertyType
 
 data class PropertyDefinition(
     val name: String,
-    val value: Value
+    val value: Value? = null
 ) {
     constructor(name: String, value: String) : this(name, SimpleValueFactory().createValue(value))
     constructor(name: String, value: Boolean) : this(name, SimpleValueFactory().createValue(value))
@@ -24,5 +24,5 @@ data class PropertyDefinition(
     /**
      * Delegates to [SimpleValueFactory.createValue] with [type] coming from [PropertyType]
      */
-    constructor(name: String, value: String, type: Integer) : this(name, SimpleValueFactory().createValue(value, type.toInt()))
+    constructor(name: String, value: String, type: PropertyType) : this(name, SimpleValueFactory().createValue(value, type.ordinal))
 }
