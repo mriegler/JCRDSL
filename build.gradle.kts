@@ -47,6 +47,8 @@ tasks {
             events("passed", "skipped", "failed", "standardOut", "standardError")
         }
     }
+    task("wrapper", Wrapper::class) {
+        gradleVersion = "4.6"
     }
 }
 
