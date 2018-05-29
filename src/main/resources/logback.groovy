@@ -12,4 +12,5 @@ appender("CONSOLE", ConsoleAppender) {
     }
 }
 
-root(DEBUG, ["CONSOLE"])
+root(WARN, ["CONSOLE"])
+logger("com.github.mriegler", DEBUG, ["CONSOLE"])
