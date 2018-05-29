@@ -1,4 +1,5 @@
 import org.gradle.plugins.ide.idea.model.IdeaModel
+import org.jetbrains.dokka.DokkaConfiguration
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val kotlin_version: String by extra
@@ -16,6 +17,7 @@ buildscript {
 plugins {
     kotlin("jvm") version "1.2.41"
     id("idea")
+    id("org.jetbrains.dokka") version "0.9.17"
 }
 apply {
     plugin("kotlin")
