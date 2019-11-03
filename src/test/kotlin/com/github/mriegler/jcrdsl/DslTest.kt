@@ -14,6 +14,13 @@ class DslTest : StringSpec({
             property("test", "test")
         }
 
+        node {
+            name = "asd"
+            property("asd", "asd")
+            property("aqwe", "asd")
+        }
+
+
         def1 shouldBe def2
     }
 

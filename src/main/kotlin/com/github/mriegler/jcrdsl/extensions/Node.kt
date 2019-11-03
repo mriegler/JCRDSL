@@ -27,7 +27,7 @@ fun Node.ensure(definition: NodeDefinition): Node {
  * Compares the [Node] to the [definition], returning true if they match.
  */
 fun Node.matches(definition: NodeDefinition): Boolean {
-    TODO()
+    return definition.matches(this)
 }
 
 /**

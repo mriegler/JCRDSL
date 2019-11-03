@@ -1,6 +1,7 @@
 package com.github.mriegler.jcrdsl
 
 import com.github.mriegler.jcrdsl.builders.NodeDefinitionBuilder
+import com.github.mriegler.jcrdsl.extensions.matches
 import com.github.mriegler.jcrdsl.models.NodeDefinition
 import mu.KotlinLogging
 import org.apache.jackrabbit.core.RepositoryImpl
@@ -18,7 +19,7 @@ fun main(args: Array<String>) {
     val session = repo.login(SimpleCredentials("admin", "admin".toCharArray()))
 
     val root = session.rootNode
-    root.addNode("test").setProperty("count", 1)
+    val newNode = root.addNode("test").setProperty("count", 1)
     logger.info { "Got repo: $repo, node: ${root.getNode("test")}" }
 //    val definition = node {
 //        name = "masternode"

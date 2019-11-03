@@ -3,11 +3,11 @@ package com.github.mriegler.jcrdsl.models
 import javax.jcr.Node
 
 data class NodeDefinition(
-    val name: String,
-    val primaryType: String,
-    val mixins: List<String>,
-    val properties: List<PropertyDefinition>,
-    val children: List<NodeDefinition>
+        val name: String,
+        val primaryType: String,
+        val mixins: List<String>,
+        val properties: List<PropertyDefinition>,
+        val children: List<NodeDefinition>
 ) {
     fun attach(parent: Node): Node {
         val newNode = parent.addNode(name, primaryType)
@@ -33,5 +33,17 @@ data class NodeDefinition(
         }
 
         return node
+    }
+
+    fun matches(node: Node): Boolean {
+        if (!node.primaryNodeType.isNodeType(primaryType) ||
+                node.name != name ||
+                mixins.any { !node.isNodeType(it) } ||
+                properties.any { !node.hasProperty(it.name) || node.getProperty(it.name) != it.value } ||
+                children.any { !node.hasNode(it.name) || !it.matches(node.getNode(it.name))}) {
+            return false
+        }
+
+        return true
     }
 }
